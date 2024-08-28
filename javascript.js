@@ -68,13 +68,4 @@ function playGame() {
     console.log("Your wins: " + humanScore + " | Computer wins: " + computerScore);
 }
 
-//console.log("hi");
-//console.log(getComputerChoice());
-//console.log(getComputerChoice());
-//console.log(getComputerChoice());
-//console.log(getHumanChoice());
-
-//let humanScore = 0;
-//let computerScore = 0;
-
 playGame();
