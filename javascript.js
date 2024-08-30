@@ -69,20 +69,30 @@ function playGame() {
 }
 
 function playerClicked(humanChoice) {
+    if ((humanScore >= 5) || (computerScore >= 5)) {
+        return;
+    }
     let round_result = playRound(humanChoice, getComputerChoice());
     if (round_result == 0) {
         humanScore ++;
         human_score_display.firstElementChild.innerHTML = humanScore.toString();
-    } else if (round_result == 1) {
-        result_display.firstElementChild.innerHTML
-        console.log("Draw");
-    } else {
+    } else if (round_result == 2) {
         computerScore ++;
         computer_score_display.firstElementChild.innerHTML = computerScore.toString();
     }
+
+    if ((humanScore >= 5) || (computerScore >= 5)) {
+        rock_button.removeEventListener("click", function(){playerClicked("rock")});
+        paper_button.removeEventListener("click", function(){playerClicked("paper")});
+        scissors_button.removeEventListener("click", function(){playerClicked("scissors")});
+        if ((humanScore >= 5)) {
+            result_display.firstElementChild.innerHTML = "You win rock, paper, scissors!";
+        } else {
+            result_display.firstElementChild.innerHTML = "The computer wins rock, paper, scissors...";
+        }
+    }
 }
 
-//playGame();
 let humanScore = 0;
 let computerScore = 0;
 
