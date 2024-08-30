@@ -48,6 +48,9 @@
 }
 
 .result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border:3px solid black;
     height: 150px;
     width: 450px;

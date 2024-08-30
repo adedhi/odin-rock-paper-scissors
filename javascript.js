@@ -34,17 +34,17 @@ function playRound(humanChoice, computerChoice) {
         case((humanChoice == "rock") && (computerChoice == "scissors")):
         case((humanChoice == "scissors") && (computerChoice == "paper")):
         case((humanChoice == "paper") && (computerChoice == "rock")):
-            console.log("You win! " + capitalize(humanChoice) + " beats " + capitalize(computerChoice));
+            result_display.firstElementChild.innerHTML = "You win! " + capitalize(humanChoice) + " beats " + capitalize(computerChoice);
             return 0;
         case((humanChoice == "rock") && (computerChoice == "rock")):
         case((humanChoice == "scissors") && (computerChoice == "scissors")):
         case((humanChoice == "paper") && (computerChoice == "paper")):
-            console.log("Draw! You both picked " + capitalize(humanChoice));
+            result_display.firstElementChild.innerHTML = "Draw! You both picked " + capitalize(humanChoice);
             return 1;
         case((humanChoice == "rock") && (computerChoice == "paper")):
         case((humanChoice == "scissors") && (computerChoice == "rock")):
         case((humanChoice == "paper") && (computerChoice == "scissors")):
-            console.log("You lose! " + capitalize(humanChoice) + " is beaten by " + capitalize(computerChoice));
+            result_display.firstElementChild.innerHTML = "You lose! " + capitalize(humanChoice) + " is beaten by " + capitalize(computerChoice);
             return 2;
     }
 }
@@ -69,19 +69,17 @@ function playGame() {
 }
 
 function playerClicked(humanChoice) {
-    let result = playRound(humanChoice, getComputerChoice());
-        switch(result) {
-            case 0:
-                humanScore ++;
-                human_score_display.firstElementChild.innerHTML = humanScore.toString();
-            case 1:
-                humanScore ++;
-                humanScore --;
-            case 2:
-                computerScore ++;
-                computer_score_display.firstElementChild.innerHTML = computerScore.toString();
-        }
-    
+    let round_result = playRound(humanChoice, getComputerChoice());
+    if (round_result == 0) {
+        humanScore ++;
+        human_score_display.firstElementChild.innerHTML = humanScore.toString();
+    } else if (round_result == 1) {
+        result_display.firstElementChild.innerHTML
+        console.log("Draw");
+    } else {
+        computerScore ++;
+        computer_score_display.firstElementChild.innerHTML = computerScore.toString();
+    }
 }
 
 //playGame();
@@ -96,7 +94,7 @@ const paper_button = document.querySelector("#paper");
 const scissors_button = document.querySelector("#scissors");
 
 human_score_display.firstElementChild.innerHTML = "0"
-//human_score_display
+result_display.firstElementChild.innerHTML = "";
 computer_score_display.firstElementChild.innerHTML = "0"
 
 rock_button.addEventListener("click", function(){playerClicked("rock")});
