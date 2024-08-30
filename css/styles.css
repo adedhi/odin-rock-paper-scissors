@@ -1,0 +1,60 @@
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+    padding: 100px 200px 100px 200px;
+}
+
+#rock, #paper, #scissors {
+    font-size: 32px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    width: 200px;
+    height: 80px;
+}
+
+#rock {
+    background-color: lightcoral;
+}
+
+#paper {
+    background-color: lightskyblue;
+}
+
+#scissors {
+    background-color: lightgreen;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 100px 200px 100px 200px;
+}
+
+.human_score, .computer_score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.human_score {
+    border: 3px solid red;
+}
+
+.result {
+    border:3px solid black;
+    height: 150px;
+    width: 450px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.computer_score {
+    border: 3px solid blue;
+}

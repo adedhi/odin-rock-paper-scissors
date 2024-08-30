@@ -68,4 +68,37 @@ function playGame() {
     console.log("Your wins: " + humanScore + " | Computer wins: " + computerScore);
 }
 
-playGame();
+function playerClicked(humanChoice) {
+    let result = playRound(humanChoice, getComputerChoice());
+        switch(result) {
+            case 0:
+                humanScore ++;
+                human_score_display.firstElementChild.innerHTML = humanScore.toString();
+            case 1:
+                humanScore ++;
+                humanScore --;
+            case 2:
+                computerScore ++;
+                computer_score_display.firstElementChild.innerHTML = computerScore.toString();
+        }
+    
+}
+
+//playGame();
+let humanScore = 0;
+let computerScore = 0;
+
+const human_score_display = document.querySelector(".human_score");
+const result_display = document.querySelector(".result");
+const computer_score_display = document.querySelector(".computer_score");
+const rock_button = document.querySelector("#rock");
+const paper_button = document.querySelector("#paper");
+const scissors_button = document.querySelector("#scissors");
+
+human_score_display.firstElementChild.innerHTML = "0"
+//human_score_display
+computer_score_display.firstElementChild.innerHTML = "0"
+
+rock_button.addEventListener("click", function(){playerClicked("rock")});
+paper_button.addEventListener("click", function(){playerClicked("paper")});
+scissors_button.addEventListener("click", function(){playerClicked("scissors")});
